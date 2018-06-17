@@ -51,3 +51,7 @@ The resulting `map.html` will have markers set for each result from OpenCage.
 The map is based on [`leaflet.js`](https://leafletjs.com), so you can dynamically scroll and zoom.  You can click the markers to see more info about the query and the OpenCage result for the query.
 
 ![zoomed in](zoomed.PNG)
+
+You can also launch the iPython notebook with:
+
+	(map-marker) $ jupyter notebook map_marker.ipynb
