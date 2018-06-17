@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Given a list of location queries, mark the locations on a Foium 
+"""Given a list of location queries, mark the locations on a Folium 
 (https://github.com/python-visualization/folium) map via the OpenCage 
 (https://geocoder.opencagedata.com/) geocoder service
 """
@@ -26,7 +26,7 @@ def middle(*coordinates):
         return coordinates[0]
     if len(coordinates) < 2:
         print(
-            f'Need at least one coordinate (got {len(coordinates)}',
+            f'Need at least one coordinate (got {len(coordinates)})',
             file=sys.stderr
         )
         return None
