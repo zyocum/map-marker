@@ -9,7 +9,6 @@ import os
 import sys
 import getpass
 
-from itertools import chain
 from math import pi, sin, cos, atan2, sqrt
 
 import folium
@@ -60,9 +59,9 @@ def mark(query, location, map_, rank, total):
     useful information.
     
     query: a location query string
-    rank: the rank of the location within the results
     location: a result from opencage.geocoder.OpenCageGeocode.geocode
     map_: a folium.Map
+    rank: the rank of the location within the results
     total: the total number of results returned by 
            opencage.geocoder.OpenCageGeocode.geocode
     """
@@ -89,7 +88,6 @@ def main(geocoder, queries, outfile, zoom=0):
     zoom: specify a starting zoom level (default=0)
     """
     results = {query: geocoder.geocode(query) for query in queries}
-    locations = list(chain(*results.values()))
     candidate_coordinates = []
     for locations in results.values():
         for location in locations:
