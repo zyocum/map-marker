@@ -76,7 +76,7 @@ def mark(query, location, map_, rank, total):
         popup=label
     ).add_to(map_)
 
-def main(geocoder, queries, outfile, zoom=0):
+def main(geocoder, queries, outfile, top_n=None, zoom=0):
     """Given a geocoder, a list of query strings, and an output file name
     create a map, mark the results, and write the map to the file.  An optional
     zoom parameter can be supplied to zoom in on the midpoint between the 
@@ -90,7 +90,7 @@ def main(geocoder, queries, outfile, zoom=0):
     results = {query: geocoder.geocode(query) for query in queries}
     candidate_coordinates = []
     for locations in results.values():
-        for location in locations:
+        for location in locations[:top_n]:
             candidate_coordinates.append(coordinates(location))
     map_ = folium.Map(
         location=middle(*candidate_coordinates),
@@ -98,7 +98,7 @@ def main(geocoder, queries, outfile, zoom=0):
         detect_retina=True
     )
     for query, locations in results.items():
-        for rank, location in enumerate(locations, 1):
+        for rank, location in enumerate(locations[:top_n], 1):
             mark(query, location, map_, rank, len(locations))
     map_.save(outfile)
 
@@ -135,6 +135,12 @@ if __name__ == '__main__':
             'https://geocoder.opencagedata.com/users/sign_up)'
         )
     )
+    parser.add_argument(
+        '-n', '--top-n',
+        type=int,
+        default=None,
+        help='limit results to the top N (by default, all results are shown)',
+    )
     args = parser.parse_args()
     queries = [line.rstrip() for line in args.input]
     key = (
@@ -146,5 +152,6 @@ if __name__ == '__main__':
         OpenCageGeocode(key),
         queries,
         args.output,
+        top_n=args.top_n,
         zoom=args.zoom
     )
