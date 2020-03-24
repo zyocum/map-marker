@@ -13,7 +13,7 @@ backcall==0.1.0
 beautifulsoup4==4.8.2
 birdseye==0.8.3
 bitarray==1.2.1
-bleach==3.1.1
+bleach==3.1.2
 blessings==1.7
 branca==0.4.0
 brewer2mpl==1.4.1
