@@ -10,7 +10,7 @@ backcall==0.1.0
 backports.shutil-get-terminal-size==1.0.0
 beautifulsoup4==4.8.2
 biopython==1.76
-bleach==3.1.1
+bleach==3.1.4
 blis==0.4.1
 branca==0.4.0
 bs4==0.0.1
