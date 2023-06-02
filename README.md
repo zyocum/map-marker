@@ -42,7 +42,7 @@ Create Folium maps with markers from natural language queries.
 
 To write a map to an HTML file that can be opened in your browser, you can run the script as follows:
 
-    (map-marker) $ ./map_marker.py - -o map.html < queries.txt
+    (map-marker) $ ./map_marker.py queries.txt map.html
 
 The resulting `map.html` will have markers set for each result from OpenCage.  
 
