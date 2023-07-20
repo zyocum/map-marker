@@ -94,7 +94,7 @@ pyarrow==11.0.0
 pycparser==2.21
 pyee==9.0.4
 pyflakes==3.0.1
-Pygments==2.14.0
+Pygments==2.15.0
 PyLaTeX==1.4.1
 pyperclip==1.8.2
 pyppeteer==1.0.2
